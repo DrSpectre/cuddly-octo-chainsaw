@@ -10,7 +10,7 @@ var capa_1 = {html_clip: document.querySelector("#capa_1"),
 
 
 var capa_2 = {html_clip: document.querySelector("#capa_2"),
-                temporizador: 1500,
+                temporizador: 0,
                 duracion: 0};
 
 var capa_3 = {html_clip: document.querySelector("#capa_3"),
@@ -31,7 +31,7 @@ var capa_5 = {html_clip: document.querySelector("#capa_5"),
 var capa_6 = {html_clip: document.querySelector("#capa_6"),
                 temporizador: 1750,
                 duracion: 9,
-                tiempos_aparicion: [5, 7, 8, 10]};
+                tiempos_aparicion: [7, 8, 10]};
 
 var capa_7 = {html_clip: document.querySelector("#capa_7"),
                 temporizador: 2750,
@@ -46,11 +46,7 @@ var capa_efectos = [capa_3, capa_4, capa_5, capa_6, capa_7];
 function programa(delta){
     capa_efectos.forEach(capa => {
         if(capa.html_clip.paused && capa.temporizador <= 0){
-            var tiempo = (tiempo_aleatorio() + capa.duracion) * 1000;
             capa.temporizador = parseInt((tiempo_aleatorio(capa.tiempos_aparicion) + capa.duracion) * 1000); 
-            console.log("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-")
-            console.log(((capa.temporizador / 1000) - capa.duracion) + ":" + capa.html_clip.id);
-            console.log(capa.html_clip.currentSrc);
             capa.html_clip.play();
         }
         else{
