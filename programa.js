@@ -63,6 +63,11 @@ function iniciar_proceso(){
             capa.html_clip.play();
         });
 
+        capa_efectos.forEach(capa => {
+            capa.temporizador =  parseInt(tiempo_aleatorio(capa.tiempos_aparicion) * 1000); 
+
+        });
+
         ciclica()
     }
 }
