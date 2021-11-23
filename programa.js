@@ -16,27 +16,27 @@ var capa_2 = {html_clip: document.querySelector("#capa_2"),
 var capa_3 = {html_clip: document.querySelector("#capa_3"),
                 temporizador: 2000,
                 duracion: 9.5,
-                tiempos_aparicion: [1.5, 3, 4]};
+                tiempos_aparicion: [4, 5, 7, 9]};
 
 var capa_4 = {html_clip: document.querySelector("#capa_4"),
                 temporizador: 2500,
                 duracion: 11.5,
-                tiempos_aparicion: [5, 7]};
+                tiempos_aparicion: [10.1, 15.1, 13.1]};
 
 var capa_5 = {html_clip: document.querySelector("#capa_5"),
                 temporizador: 1450,
                 duracion: 9.5,
-                tiempos_aparicion: [0.5, 0.7, 1.3, 1.5, 1.8, 2.1, 2.4]};
+                tiempos_aparicion: [0.6, 0.8, 1.4, 1.6, 1.9, 2.2, 2.5]};
 
 var capa_6 = {html_clip: document.querySelector("#capa_6"),
                 temporizador: 1750,
                 duracion: 9,
-                tiempos_aparicion: [7, 8, 10]};
+                tiempos_aparicion: [7.3, 8.3, 10.3]};
 
 var capa_7 = {html_clip: document.querySelector("#capa_7"),
                 temporizador: 2750,
                 duracion: 15,
-                tiempos_aparicion: [6, 8, 11, 15]};
+                tiempos_aparicion: [6.4, 8.5, 11.4, 15.4]};
 
 
 var capa_base = [capa_1, capa_2];
@@ -48,6 +48,7 @@ function programa(delta){
         if(capa.html_clip.paused && capa.temporizador <= 0){
             capa.temporizador = parseInt((tiempo_aleatorio(capa.tiempos_aparicion) + capa.duracion) * 1000); 
             capa.html_clip.play();
+            console.log("Reproduciendo: " + capa.html_clip.currentSrc);
         }
         else{
             var tempo = parseInt(capa.temporizador) - parseInt(delta);
